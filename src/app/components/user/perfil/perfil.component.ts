@@ -59,13 +59,14 @@ export class PerfilComponent implements OnInit {
 
     this.form = this.fb.group(
       {
-        titulo: ['', Validators.required],
+        userName: [''],
+        titulo: ['NaoInformado', Validators.required],
         primeiroNome: ['', Validators.required],
         ultimoNome: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        telefone: ['', [Validators.required]],
+        phoneNumber: ['', [Validators.required]],
         descricao: ['', Validators.required],
-        funcao: ['', Validators.required],
+        funcao: ['NaoInformado', Validators.required],
         password: ['', [Validators.minLength(4), Validators.nullValidator]],
         confirmePassword: ['', Validators.nullValidator],
       },
@@ -80,13 +81,30 @@ export class PerfilComponent implements OnInit {
 
   onSubmit(): void {
     // Vai parar aqui se o form estiver inválido
-    if (this.form.invalid) {
-      return;
-    }
+    // if (this.form.invalid) {
+    //   return;
+    // }
+
+    this.atualizarUsuario();
   }
 
   public resetForm(event: any): void {
     event.preventDefault();
     this.form.reset();
   }
+
+  public atualizarUsuario(){
+    this.userUpdate = { ...this.form.value};
+    this.spinner.show();
+
+    this.accountService.updateUser(this.userUpdate).subscribe(
+      () => this.toaster.success('Usuário atualizado!', 'Sucesso'),
+      (error) => {
+        this.toaster.error(error.error);
+        console.error(error);
+      }
+    )
+    .add(() => this.spinner.hide())
+  }
+
 }
