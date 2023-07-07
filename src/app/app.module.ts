@@ -35,6 +35,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PerfilDetalheComponent } from './components/user/perfil/perfil-detalhe/perfil-detalhe.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -55,6 +56,7 @@ defineLocale('pt-br', ptBrLocale);
       LoginComponent,
       RegistrationComponent,
       HomeComponent,
+      PerfilDetalheComponent
    ],
   imports: [
     ReactiveFormsModule,
