@@ -36,6 +36,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PerfilDetalheComponent } from './components/user/perfil/perfil-detalhe/perfil-detalhe.component';
+import { PalestranteListaComponent } from './components/palestrantes/palestrante-lista/palestrante-lista.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -56,7 +57,8 @@ defineLocale('pt-br', ptBrLocale);
       LoginComponent,
       RegistrationComponent,
       HomeComponent,
-      PerfilDetalheComponent
+      PerfilDetalheComponent,
+      PalestranteListaComponent
    ],
   imports: [
     ReactiveFormsModule,
