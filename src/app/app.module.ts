@@ -37,6 +37,9 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PerfilDetalheComponent } from './components/user/perfil/perfil-detalhe/perfil-detalhe.component';
 import { PalestranteListaComponent } from './components/palestrantes/palestrante-lista/palestrante-lista.component';
+import { PalestranteDetalheComponent } from './components/palestrantes/palestrante-detalhe/palestrante-detalhe.component';
+import { RedesSociaisComponent } from './components/redesSociais/redesSociais.component';
+import { RedeSocialService } from './services/redeSocial.service';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -58,7 +61,9 @@ defineLocale('pt-br', ptBrLocale);
       RegistrationComponent,
       HomeComponent,
       PerfilDetalheComponent,
-      PalestranteListaComponent
+      PalestranteListaComponent,
+      PalestranteDetalheComponent,
+      RedesSociaisComponent
    ],
   imports: [
     ReactiveFormsModule,
@@ -86,6 +91,7 @@ defineLocale('pt-br', ptBrLocale);
   providers: [
     EventoService,
     LoteService,
+    RedeSocialService,
     AccountService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
